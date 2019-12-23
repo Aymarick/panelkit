@@ -26,4 +26,8 @@ extension PanelFloatingState: Hashable {
 		return zIndex.hashValue
 	}
 	
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(hashValue)
+    }
+    
 }
