@@ -9,6 +9,10 @@
 import Foundation
 
 extension PanelViewController {
+    
+    public var pinSide: PanelPinSide? {
+        return pinnedMetadata?.side
+    }
 
 	var wasPinned: Bool {
 		return !isPinned && pinnedMetadata != nil
