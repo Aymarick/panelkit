@@ -63,6 +63,10 @@ public extension PanelContentDelegate {
 	func panelDragGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 		return true
 	}
+    
+    var draggableFrame: CGRect? {
+        return nil
+    }
 
 	var preferredPanelPinnedWidth: CGFloat {
 		return preferredPanelContentSize.width

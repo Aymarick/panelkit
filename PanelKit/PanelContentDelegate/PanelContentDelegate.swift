@@ -108,6 +108,10 @@ public protocol PanelContentDelegate: class {
 	/// 
 	/// This can be used to prevent the panel from dragging in certain areas.
 	func panelDragGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
+    
+    /// the frame where the drag can start.
+    /// Default is the nav bar.
+    var draggableFrame: CGRect? { get }
 
 	/// When true: the close UIBarButtonItem will be hidden when the panel is floating.
 	/// Default is false.

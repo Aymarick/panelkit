@@ -474,12 +474,20 @@ extension PanelViewController: UIGestureRecognizerDelegate {
 		}
 		
 		if !self.isUnpinning && !isDragging {
-			
-			let navigationBar = panelNavigationController.navigationBar
+            
+            if let frame = contentDelegate?.draggableFrame,
+                let contentView = panelNavigationController.viewControllers.first?.view {
+                let frameFromView = contentView.convert(frame, to: self.view)
+                guard frameFromView.contains(gestureRecognizer.initialTouchLocation) else {
+                    return
+                }
+            } else {
+                let navigationBar = panelNavigationController.navigationBar
 
-			guard navigationBar.frame.contains(navigationBar.convert(gestureRecognizer.initialTouchLocation, from: self.view)) else {
-				return
-			}
+                guard navigationBar.frame.contains(navigationBar.convert(gestureRecognizer.initialTouchLocation, from: self.view)) else {
+                    return
+                }
+            }
 		}
 
 		let touchPoint = gestureRecognizer.location(ofTouch: 0, in: superview)

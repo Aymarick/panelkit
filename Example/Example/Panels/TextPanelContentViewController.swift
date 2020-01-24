@@ -33,5 +33,9 @@ class TextPanelContentViewController: UIViewController, PanelContentDelegate {
 	var preferredPanelPinnedHeight: CGFloat {
 		return 260
 	}
+    
+    var draggableFrame: CGRect? {
+        return view.bounds
+    }
 	
 }
